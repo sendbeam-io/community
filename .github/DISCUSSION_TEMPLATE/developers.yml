@@ -1,0 +1,74 @@
+title: "[Dev] "
+labels: ["developers"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For the REST API, webhooks, and the tools that connect to SendBeam.
+
+        Reference: [API docs](https://sendbeam.io/docs/api) ·
+        [OpenAPI 3.1 spec](https://sendbeam.io/openapi.json) ·
+        [Webhooks](https://sendbeam.io/docs/api/webhooks)
+
+        **Bugs in the n8n node, the WordPress plugin or the Zapier integration belong in that
+        project's own issue tracker**, not here — links are in the
+        [README](https://github.com/sendbeam-io/community).
+
+        ⚠️ **Redact your API key as `sb_live_xxx` before posting anything.** These discussions
+        are public and indexed. If you paste one by accident, rotate it in your workspace
+        settings first, then edit the post.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: What are you using?
+      options:
+        - The REST API directly
+        - Outbound webhooks
+        - The n8n node
+        - The WordPress plugin
+        - Zapier or Make
+        - E-commerce events (WooCommerce or Shopify)
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: What are you building?
+    validations:
+      required: true
+  - type: input
+    id: endpoint
+    attributes:
+      label: Endpoint, node or hook
+      description: "e.g. POST /api/v1/contacts, or the Shopify orders/create webhook"
+    validations:
+      required: false
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead?
+      description: Include the status code and response body. Redact any key.
+      render: json
+    validations:
+      required: true
+  - type: input
+    id: scopes
+    attributes:
+      label: API key scopes
+      description: "The scope names only — e.g. contacts:read, campaigns:write. Never the key itself."
+    validations:
+      required: false
+  - type: checkboxes
+    id: secrets
+    attributes:
+      label: Before you post
+      options:
+        - label: I have redacted every API key, webhook secret and email address in what I am about to post.
+          required: true

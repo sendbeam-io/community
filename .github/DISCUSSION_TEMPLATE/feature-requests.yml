@@ -1,0 +1,50 @@
+title: ""
+labels: ["status: under consideration"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tell us what SendBeam should do next.
+
+        **One request per discussion**, and **search first** — upvoting an existing request
+        counts for far more than a second one saying the same thing, because vote counts are
+        most of how we decide what to build.
+
+        We mark status with a label as it changes: under consideration → planned → in progress
+        → shipped, or not planned with a reason. No date promises: SendBeam is small, and a
+        date we miss is worse than no date.
+
+        Anything urgent and account-specific goes to
+        [private support](https://sendbeam.io/contact) instead.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: The problem, not the feature. Sometimes a segment or an automation already does it.
+    validations:
+      required: true
+  - type: textarea
+    id: workaround
+    attributes:
+      label: What do you do today instead?
+      description: A workaround you dislike is strong evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like SendBeam to do?
+    validations:
+      required: true
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does this come up for you?
+      options:
+        - Every time I send
+        - Weekly
+        - Monthly
+        - Occasionally, but it hurts when it does
+        - Once, but it blocked me
+    validations:
+      required: true

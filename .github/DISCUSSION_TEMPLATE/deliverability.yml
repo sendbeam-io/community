@@ -1,0 +1,83 @@
+title: "[Deliverability] "
+labels: ["deliverability"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Deliverability questions are welcome whether or not the sending goes through SendBeam —
+        the rules are the mailbox providers', not ours.
+
+        **Run [the sender check](https://sendbeam.io/tools/sender-check) on your domain first.**
+        It is free, needs no account, and its grade answers most of what we would ask.
+
+        ⚠️ If you paste email headers, redact recipient addresses as `j***@example.com`.
+  - type: dropdown
+    id: symptom
+    attributes:
+      label: What is happening?
+      options:
+        - Mail is going to spam
+        - Mail is bouncing
+        - My sending domain will not verify
+        - I have had a rate warning or my sending was paused
+        - I am setting up and want to get it right first
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: Tell us more
+      description: What you are seeing, and when it started.
+    validations:
+      required: true
+  - type: input
+    id: sender-check
+    attributes:
+      label: Sender check grade
+      description: "The overall grade from https://sendbeam.io/tools/sender-check — e.g. B, failing DMARC"
+    validations:
+      required: false
+  - type: dropdown
+    id: providers
+    attributes:
+      label: Which mailbox providers?
+      multiple: true
+      options:
+        - Gmail
+        - Outlook / Hotmail / Live
+        - Yahoo
+        - Apple iCloud
+        - Corporate or self-hosted
+        - All of them
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: list-source
+    attributes:
+      label: Where did the list come from?
+      description: Be honest — it changes the answer more than anything else here.
+      options:
+        - Signup form on my site, double opt-in
+        - Signup form on my site, single opt-in
+        - Imported from another platform
+        - Imported from a CRM, spreadsheet or order history
+        - A mix of the above
+        - I would rather explain below
+    validations:
+      required: true
+  - type: input
+    id: volume
+    attributes:
+      label: Roughly how many do you send, and how often?
+      description: "e.g. 800 a week, or 5,000 once a month"
+    validations:
+      required: false
+  - type: input
+    id: rates
+    attributes:
+      label: Bounce and complaint rates
+      description: From Reports, if you have them.
+    validations:
+      required: false
