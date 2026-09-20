@@ -1,1 +1,86 @@
+title: "[Question] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for asking here — the answer helps the next person too.
 
+        **Before you post:** search existing discussions, check
+        [status.sendbeam.io](https://status.sendbeam.io), and check the
+        [docs](https://sendbeam.io/docs) (every page is also plain Markdown at the
+        same URL with `.md` on the end).
+
+        ⚠️ **Never paste an API key, a webhook secret, a Turnstile secret or a contact's
+        email address.** These discussions are public and indexed. Redact keys as
+        `sb_live_xxx` and addresses as `j***@example.com`.
+  - type: textarea
+    id: goal
+    attributes:
+      label: What were you trying to do?
+      description: The goal, not just the step you got stuck on.
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened instead?
+      description: Paste the exact error text. Not a screenshot of text — we cannot search a screenshot.
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where did this happen?
+      options:
+        - In the app
+        - Through the API
+        - In an automation
+        - In a form on my site
+        - Somewhere else
+    validations:
+      required: true
+  - type: dropdown
+    id: plan
+    attributes:
+      label: Which plan are you on?
+      description: Several limits differ by plan, and that is often the answer.
+      options:
+        - Free
+        - Starter
+        - Pro
+        - Business
+    validations:
+      required: true
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Is your sending domain verified?
+      description: Workspace settings → Email & Domains.
+      options:
+        - Yes, verified
+        - No, still verifying
+        - Not using my own domain
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: reference
+    attributes:
+      label: Relevant ID, if there is one
+      description: Campaign, automation, form or contact ID. Not a contact's email address.
+    validations:
+      required: false
+  - type: textarea
+    id: tried
+    attributes:
+      label: What have you already tried?
+    validations:
+      required: false
+  - type: checkboxes
+    id: secrets
+    attributes:
+      label: Before you post
+      options:
+        - label: I have not included an API key, a webhook secret, or anyone's email address.
+          required: true
