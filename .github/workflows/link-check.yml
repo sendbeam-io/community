@@ -1,0 +1,26 @@
+name: link check
+
+# The community links to sendbeam.io/docs rather than copying it. Once a week,
+# and on demand, every such link in every discussion is fetched and each
+# anchor is looked up on its page, so a renamed page or heading is caught
+# rather than left as a dead pointer.
+on:
+  schedule:
+    - cron: '20 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  discussions: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/check-links.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
